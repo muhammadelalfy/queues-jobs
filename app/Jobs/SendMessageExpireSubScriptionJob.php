@@ -8,7 +8,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Http\helpers\helpers;
 
 class SendMessageExpireSubScriptionJob implements ShouldQueue
 {
@@ -16,6 +15,7 @@ class SendMessageExpireSubScriptionJob implements ShouldQueue
 
         private $customer;
         private $expired;
+
 
     /**
      * Create a new job instance.
@@ -35,6 +35,6 @@ class SendMessageExpireSubScriptionJob implements ShouldQueue
      */
     public function handle()
     {
-        sendEmail('template' , $this->customer->email , 'title' ,  $this->customer);
+        sendEmail('emails.subscription.template' , $this->customer->email , 'title' ,  $this->customer);
     }
 }

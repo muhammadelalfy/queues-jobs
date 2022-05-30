@@ -32,10 +32,10 @@ class SubscriptionExpireDate extends Command
     {
         $customers_end_subscription = Customer::where('subscription_end_date' ,'<', now())->get();
         info('iam here in command line 34');
-//        dd($customers_end_subscription);
+//        dd($customers_end_subscription[0]->email);
         foreach ($customers_end_subscription as $end_dates){
            $expire_date = Carbon::createFromFormat('Y-m-d' , $end_dates->subscription_end_date)->toDateString();
-            dispatch(new SendMessageExpireSubScriptionJob($customers_end_subscription , $expire_date))->onQueue('AHMED');
+            dispatch(new SendMessageExpireSubScriptionJob($end_dates , $expire_date))->onQueue('ahmed');
         }
     }
 }
