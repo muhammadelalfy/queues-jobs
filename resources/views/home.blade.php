@@ -13,9 +13,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     {{ __('You are logged in!') }}
+                        <x-sidebar title="my title" :info = "$info"/>
                 </div>
+
+
             </div>
         </div>
     </div>

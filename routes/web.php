@@ -35,3 +35,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('one',[PayOrderController::class,'one']);
+
+Route::get('sample' , function (){
+
+    return view('sample-component' , ['info' => 'helllo info']);
+});
