@@ -35,3 +35,21 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('one',[PayOrderController::class,'one']);
+
+
+////////////////////////////////////////component//////////////////////////////////
+Route::get('sample' , function (){
+
+    return view('sample-component' , ['info' => 'helllo info']);
+});
+/////////////////////////////////////////http///////////////////////////////////////
+Route::get('http' , function (){
+//    $response = \Illuminate\Support\Facades\Http::post('https://jsonplaceholder.typicode.com/posdddts' , ['userId' => 2]);
+//    return $response->throw(); using through
+
+    $response = \Illuminate\Support\Facades\Http::post('https://jsonplaceholder.typicode.com/posts' , ['userId' => 2]);
+         return $response->offsetGet('userId');
+
+
+
+});
