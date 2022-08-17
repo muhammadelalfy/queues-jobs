@@ -6,10 +6,10 @@
 
     @foreach($list('sting sent') as $list1)
         <p>{{$list1}}</p>
-
     @endforeach
 {{--    for additional content inside x component--}}
     {{$slot}}
     <h1>{{$any_speech_with_name}}</h1>
 
 </div>
+
